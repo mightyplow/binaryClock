@@ -1,0 +1,31 @@
+{
+  "name": "binaryClock",
+  "version": "1.0.0",
+  "description": "",
+  "main": [
+    "dist/binaryClock.min.js",
+    "dist/binaryClock.min.css"
+  ],
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "chokidar": "^1.6.0",
+    "node-sass": "^3.10.1",
+    "npm-run-all": "^3.1.0",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "webpack-dev": "webpack --config webpack.config.dev.js",
+    "webpack-prod": "webpack --config webpack.config.prod.js",
+    "sass-dev": "node-sass app/scss/binary-clock.scss > dist/binaryClock.css",
+    "sass-prod": "node-sass app/scss/binary-clock.scss --output-style compressed > dist/binaryClock.min.css",
+    "build": "run-p sass-dev webpack-dev",
+    "build-prod": "rm -rf dist && mkdir dist && run-p sass-dev sass-prod webpack-dev webpack-prod",
+    "watch": "run-p 'sass-dev -- --watch' 'webpack-dev -- --watch'"
+  },
+  "keywords": [],
+  "author": "mightyplow@gmail.com",
+  "license": "ISC"
+}

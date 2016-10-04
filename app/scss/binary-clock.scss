@@ -1,0 +1,55 @@
+#binary-clock {
+    $digitWidth: 2em;
+
+    $digitInactiveColor: #dedede;
+    $digitActiveColor: #ef0000;
+    $digitMargin: 20%;
+
+    @mixin digitColor ($color) {
+        background: linear-gradient(135deg, $color, $color - 20%);
+        box-shadow: 1px 1px 2px darken($color, 20);
+    }
+
+    max-width: 250px;
+    width: 80%;
+    margin: 0 auto;
+
+    text-align: center;
+    white-space: nowrap;
+
+    .digit {
+        display: inline-block;
+        width: calc((100% - #{$digitMargin}) / 6);
+        margin: 0 calc(#{$digitMargin} / 12);
+
+        white-space: normal;
+    }
+
+    .binary-digit {
+        display: inline-block;
+        overflow: visible;
+
+        width: 100%;
+        height: 0;
+
+        margin: 5% 0;
+
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 100%;
+
+            border-radius: 100%;
+
+            @include digitColor($digitInactiveColor);
+        }
+
+        &.active {
+            &:after {
+                @include digitColor($digitActiveColor);
+            }
+        }
+    }
+}
+
