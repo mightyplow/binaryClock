@@ -1,11 +1,7 @@
 {
   "name": "binaryClock",
   "version": "1.0.0",
-  "description": "",
-  "main": [
-    "dist/binaryClock.min.js",
-    "dist/binaryClock.min.css"
-  ],
+  "description": "frontend browser module to create a binary clock",
   "dependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
@@ -24,7 +20,7 @@
     "build-prod": "rm -rf dist && mkdir dist && run-p sass-dev sass-prod webpack-dev webpack-prod",
     "watch": "run-p 'sass-dev -- --watch' 'webpack-dev -- --watch'"
   },
-  "keywords": [],
+  "keywords": ["frontend", "browser", "javascript", "binary clock"],
   "author": "mightyplow@gmail.com",
   "license": "ISC"
 }
