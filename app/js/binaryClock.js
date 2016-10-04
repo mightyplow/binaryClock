@@ -12,8 +12,9 @@ export const createBinaryClock = function (targetElement, startImmediately) {
     startImmediately = startImmediately !== false;
 
     const binaryDigitCounts = [2, 4, 3, 4, 3, 4];
+    const updateIntervalInMs = 200;
 
-    const updateBinaryDigits = (function () {
+    const updateClock = (function () {
         const digits = binaryDigitCounts.map(count => createDigit(count));
         digits.forEach(digit => targetElement.appendChild(digit.element));
 
@@ -34,7 +35,7 @@ export const createBinaryClock = function (targetElement, startImmediately) {
             const time = getTime();
 
             if (time !== lastTime) {
-                updateBinaryDigits(time);
+                updateClock(time);
                 updateTimeHandlers.forEach(handler => handler(time));
             }
 
@@ -44,7 +45,7 @@ export const createBinaryClock = function (targetElement, startImmediately) {
         return {
             start: function () {
                 updateTime();
-                interval = setInterval(updateTime, 100);
+                interval = setInterval(updateTime, updateIntervalInMs);
             },
 
             stop: function () {
