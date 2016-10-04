@@ -13,6 +13,7 @@ export const createBinaryClock = function (targetElement, startImmediately) {
 
     const binaryDigitCounts = [2, 4, 3, 4, 3, 4];
     const updateIntervalInMs = 200;
+    const binaryClockClassname = 'binary-clock';
 
     const updateClock = (function () {
         const digits = binaryDigitCounts.map(count => createDigit(count));
@@ -62,6 +63,7 @@ export const createBinaryClock = function (targetElement, startImmediately) {
         };
     }());
 
+    targetElement.classList.add(binaryClockClassname);
     startImmediately && clock.start();
 
     return clock;

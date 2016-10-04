@@ -1,4 +1,4 @@
-#binary-clock {
+.binary-clock {
     $digitWidth: 2em;
 
     $digitInactiveColor: #dedede;
@@ -9,10 +9,6 @@
         background: linear-gradient(135deg, $color, $color - 20%);
         box-shadow: 1px 1px 2px darken($color, 20);
     }
-
-    max-width: 250px;
-    width: 80%;
-    margin: 0 auto;
 
     text-align: center;
     white-space: nowrap;
